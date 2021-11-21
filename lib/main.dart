@@ -1,3 +1,4 @@
+import 'package:first_flutter_project/row_column.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -8,7 +9,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quiz App',
       theme: ThemeData(primarySwatch: Colors.amber),
-      home: HomePage(),
+      // home: HomePage(),
+      home: MyRowColumn()
     );
   }
 }
