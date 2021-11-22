@@ -1,4 +1,5 @@
 import 'package:first_flutter_project/my_container.dart';
+import 'package:first_flutter_project/my_flexible.dart';
 import 'package:first_flutter_project/row_column.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         title: 'Quiz App',
         theme: ThemeData(primarySwatch: Colors.amber),
         // home: HomePage(),
-        home: MyContainer());
+        home: MyFlex());
   }
 }
 
