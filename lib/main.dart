@@ -1,8 +1,10 @@
 import 'package:first_flutter_project/my_container.dart';
 import 'package:first_flutter_project/row_column.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 void main() {
+  debugPaintSizeEnabled = false;
   return runApp(MyApp());
 }
 
