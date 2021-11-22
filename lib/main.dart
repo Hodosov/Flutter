@@ -1,17 +1,21 @@
+import 'package:first_flutter_project/my_container.dart';
 import 'package:first_flutter_project/row_column.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
-void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled = false;
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Quiz App',
-      theme: ThemeData(primarySwatch: Colors.amber),
-      // home: HomePage(),
-      home: MyRowColumn()
-    );
+        title: 'Quiz App',
+        theme: ThemeData(primarySwatch: Colors.amber),
+        // home: HomePage(),
+        home: MyContainer());
   }
 }
 
