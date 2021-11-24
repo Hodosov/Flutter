@@ -81,7 +81,7 @@ class PersonWidget extends StatelessWidget {
                   ),
                   Card(
                       elevation: 5,
-                      margin: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                       child: Container(
                           padding: const EdgeInsets.all(10),
                           child: _buildAction())),
