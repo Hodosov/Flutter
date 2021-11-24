@@ -26,9 +26,31 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('lorem'),
-    );
+    return Row(children: <Widget>[
+      IconButton(
+        icon: (_isFavorite
+            ? const Icon(Icons.favorite)
+            : const Icon(Icons.favorite_border)),
+        onPressed: _toggleFavorite,
+        color: Colors.red[500],
+      ),
+      SizedBox(
+        width: 40,
+        child: Text('$_favoriteCount'),
+      )
+    ]);
+  }
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorite) {
+        _isFavorite = false;
+        _favoriteCount -= 1;
+      } else {
+        _isFavorite = true;
+        _favoriteCount += 1;
+      }
+    });
   }
 }
 
@@ -37,7 +59,7 @@ class PersonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Япония, Старшая Некома'),
+        title: const Text('Япония, Старшая Некома'),
       ),
       body: Container(
         child: _buildMainColumn(),
@@ -119,7 +141,7 @@ class PersonWidget extends StatelessWidget {
         ],
       );
 
-      Widget _buildDescription () => const Text(
+  Widget _buildDescription() => const Text(
         "Teemo throws an explosive poisonous trap using one of the mushrooms stored in his pack. If an enemy steps on the trap, it will release a poisonous cloud, slowing enemies and damaging them over time. If Teemo throws a mushroom onto another mushroom it will bounce, gaining additional range.",
         softWrap: true,
         style: TextStyle(fontSize: 16),
