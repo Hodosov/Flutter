@@ -47,14 +47,14 @@ class PersonWidget extends StatelessWidget {
 
   Widget _buildMainColumn() => ListView(
         children: [
-          // _buildTopImage(),
+          _buildTopImage(),
           Center(
             child: Container(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Column(
                 children: <Widget>[
                   Container(
-                    child: const Text('Рейтинг'),
+                    child: _buidRating(),
                     margin: const EdgeInsets.all(10),
                   ),
                   Card(
@@ -62,10 +62,10 @@ class PersonWidget extends StatelessWidget {
                       margin: const EdgeInsets.all(10),
                       child: Container(
                           padding: const EdgeInsets.all(10),
-                          child: const Text('button'))),
+                          child: _buildAction())),
                   Container(
                     margin: const EdgeInsets.all(5),
-                    child: Text('description'),
+                    child: _buildDescription(),
                   )
                 ],
               ),
@@ -74,5 +74,54 @@ class PersonWidget extends StatelessWidget {
         ],
       );
 
-    // Widget _buildTopImage () =>
+  Widget _buildTopImage() => Container(
+        child: Card(
+          margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+          elevation: 5,
+          child: Image.asset(
+            'assets/images/teemo.jpg',
+            fit: BoxFit.contain,
+          ),
+        ),
+      );
+
+  Widget _buidRating() => ListTile(
+        title: const Text(
+          'Teemo',
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+        ),
+        subtitle: const Text("Япония, Старшая Некома"),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[FavoriteWidget()],
+        ),
+      );
+
+  Widget _buildAction() => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _buildButton('Rate', Icons.star, Colors.black),
+          _buildButton('Position', Icons.radio_button_checked, Colors.black),
+          _buildButton('Lvl', Icons.school, Colors.black),
+        ],
+      );
+
+  Widget _buildButton(String label, IconData icon, Color color) => Column(
+        children: <Widget>[
+          Icon(
+            icon,
+            color: Colors.black,
+          ),
+          Text(
+            label,
+            style: TextStyle(fontWeight: FontWeight.w400, color: color),
+          )
+        ],
+      );
+
+      Widget _buildDescription () => const Text(
+        "Teemo throws an explosive poisonous trap using one of the mushrooms stored in his pack. If an enemy steps on the trap, it will release a poisonous cloud, slowing enemies and damaging them over time. If Teemo throws a mushroom onto another mushroom it will bounce, gaining additional range.",
+        softWrap: true,
+        style: TextStyle(fontSize: 16),
+      );
 }
