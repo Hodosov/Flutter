@@ -96,16 +96,14 @@ class PersonWidget extends StatelessWidget {
         ],
       );
 
-  Widget _buildTopImage() => Container(
-        child: Card(
-          margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
-          elevation: 5,
-          child: Image.asset(
-            'assets/images/teemo.jpg',
-            fit: BoxFit.contain,
-          ),
-        ),
-      );
+  Widget _buildTopImage() => Card(
+    margin: const EdgeInsets.only(left: 0, right: 0, top: 0),
+    elevation: 5,
+    child: Image.asset(
+      'assets/images/teemo.jpg',
+      fit: BoxFit.contain,
+    ),
+  );
 
   Widget _buidRating() => ListTile(
         title: const Text(
@@ -119,13 +117,16 @@ class PersonWidget extends StatelessWidget {
         ),
       );
 
-  Widget _buildAction() => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _buildButton('Rate', Icons.star, Colors.black),
-          _buildButton('Position', Icons.radio_button_checked, Colors.black),
-          _buildButton('Lvl', Icons.school, Colors.black),
-        ],
+  Widget _buildAction() => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            _buildButton('Rate', Icons.star, Colors.black),
+            _buildButton('Position', Icons.radio_button_checked, Colors.black),
+            _buildButton('Lvl', Icons.school, Colors.black),
+          ],
+        ),
       );
 
   Widget _buildButton(String label, IconData icon, Color color) => Column(
